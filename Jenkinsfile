@@ -3,7 +3,7 @@ properties([pipelineTriggers([githubPush()])])
 pipeline {
     environment {
         // Global 변수 선언
-        dockerRepo = "211.43.12.120:40010/guzing"
+        dockerRepo = "211.43.12.210:40010/guzing"
         dockerCredentials = 'nexus_ci_edu3'
         dockerImageVersioned = ""
         dockerImageLatest = ""
@@ -33,7 +33,7 @@ pipeline {
             steps{
                 script{
                     // if you want to use custom registry, use the first argument, which is blank in this case
-                    docker.withRegistry( 'http://211.43.12.120:40010', dockerCredentials){
+                    docker.withRegistry( 'http://211.43.12.210:40010', dockerCredentials){
                         dockerImageVersioned.push()
                         dockerImageLatest.push()
                     }
